@@ -10,8 +10,6 @@ namespace WindowsFormsApplication1
 {
     class Work_File
     {
-        private static IEnumerable<depositor> depositors;
-
         public static void work_date(string date)
         {
             string path = @"D:\Data\date.txt";
@@ -48,12 +46,22 @@ namespace WindowsFormsApplication1
                     sw.WriteLine(d.ChangeDate);
                 }
             }
+            path = @"D:\Data\Change_" + date + ".txt";
+            using (StreamWriter sw = File.AppendText(path))
+            {
+
+            }
         }
 
         public static void money_up(List<depositor> dep,string date)
         {
             DateTime dt = DateTime.Parse(date);
-            int day = dt.DayOfYear;
+            int day=365;
+            if (DateTime.IsLeapYear(dt.Year))
+            {
+                day = 366;
+            }
+            
 
             foreach (depositor d in dep)
             {
@@ -169,7 +177,8 @@ namespace WindowsFormsApplication1
 
             }
             money_up(depositors, date);
-            date = DateTime.Parse(date).AddDays(1).ToString();
+            string date1 = DateTime.Parse(date).AddDays(1).ToString();
+            date = date1.Substring(0, 10);
             work_dep(depositors, date);
             return date;
         }

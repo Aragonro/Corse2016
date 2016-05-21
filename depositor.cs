@@ -25,13 +25,13 @@ namespace WindowsFormsApplication1
         public string FirstName
         {
             get { return firstname; }
-            set { firstname = FirstName; }
+            set { firstname = value; }
         }
         string secondname;
         public string SecondName
         {
             get { return secondname; }
-            set { secondname = SecondName; }
+            set { secondname = value; }
         }
         string valuta;
         public string Valuta

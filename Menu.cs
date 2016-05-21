@@ -33,5 +33,10 @@ namespace WindowsFormsApplication1
             thisdate.Text=Work_File.Next_Day(thisdate.Text);
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
