@@ -61,10 +61,12 @@ namespace WindowsFormsApplication1
         {
             get; set;
         }
+        //пополнение счёта.
         public void receiving(double money)
         {
             Dep_Money += Math.Round(money, 2);
         }
+        //снятие денег.
         public bool dispensing(double money)
         {
 

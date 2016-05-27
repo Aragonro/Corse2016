@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void ok_Click(object sender, EventArgs e)
+        private void ok_Click(object sender, EventArgs e)//поиск вкладчика
         {
             if (chose_filter.Text == "")
             {
@@ -265,7 +265,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void ok_operation_Click(object sender, EventArgs e)
+        private void ok_operation_Click(object sender, EventArgs e)//снятие денег и пополнение счёта
         {
             if (chose_operation.Text == "")
             {

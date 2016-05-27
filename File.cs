@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
 {
     static class Work_File
     {
+        //запись последней даты
         public static void work_date(string date)
         {
             string path = @"D:\Data\date.txt";
@@ -21,7 +22,7 @@ namespace WindowsFormsApplication1
 
 
         }
-
+        //создание файла со вкладчиками которые существуют на момент наступление даты date.
         public static void work_dep(List<depositor> dep,string date)
         {
             string path = @"D:\Data\" + date+".txt";
@@ -52,7 +53,7 @@ namespace WindowsFormsApplication1
 
             }
         }
-
+        //получение денег за день.
         public static void money_up(List<depositor> dep,string date)
         {
             DateTime dt = DateTime.Parse(date);
@@ -75,7 +76,7 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
+        //добавление вкладчика
         public static void Add(string f_name,string s_name,string bank_book,string phone,string p_pasport,string pasport,double sum,string value,double procent,string name_procent,string date)
         {
             depositor dep = new depositor();
@@ -96,7 +97,7 @@ namespace WindowsFormsApplication1
                 sw.WriteLine(dep.ChangeDate = date);
             }
         }
-
+        //удаление вкладчика
         public static void Delete(string bank_book,string date)
         {
             string path = @"D:\Data\Change_" + date+".txt";
@@ -106,6 +107,7 @@ namespace WindowsFormsApplication1
                 sw.WriteLine(bank_book);
             }
          }
+        //наступление следующего дня.
         public static string Next_Day(string date)
         {
             string path = @"D:\Data\" +date+".txt";
@@ -211,14 +213,5 @@ namespace WindowsFormsApplication1
             return date;
         }
 
-        private static void work_dep(IEnumerable<depositor> depositors, string date)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void money_up(IEnumerable<depositor> depositors, string date)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         {
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//регистрация
         {
             depositor dep = new depositor();
             string f_name = this.f_name.Text;

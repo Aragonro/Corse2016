@@ -30,8 +30,7 @@
         {
             this.button_registry = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.Next_day = new System.Windows.Forms.Button();
-            this.thisdate = new System.Windows.Forms.TextBox();
+            this.thisdate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_registry
@@ -54,31 +53,21 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Next_day
-            // 
-            this.Next_day.Location = new System.Drawing.Point(216, 341);
-            this.Next_day.Name = "Next_day";
-            this.Next_day.Size = new System.Drawing.Size(115, 25);
-            this.Next_day.TabIndex = 3;
-            this.Next_day.Text = "Следующий день";
-            this.Next_day.UseVisualStyleBackColor = true;
-            this.Next_day.Click += new System.EventHandler(this.Next_day_Click);
-            // 
             // thisdate
             // 
-            this.thisdate.Location = new System.Drawing.Point(216, 315);
+            this.thisdate.AutoSize = true;
+            this.thisdate.Location = new System.Drawing.Point(213, 255);
             this.thisdate.Name = "thisdate";
-            this.thisdate.Size = new System.Drawing.Size(115, 20);
+            this.thisdate.Size = new System.Drawing.Size(35, 13);
             this.thisdate.TabIndex = 4;
-            this.thisdate.Text = "01.01.2009";
+            this.thisdate.Text = "label1";
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 395);
+            this.ClientSize = new System.Drawing.Size(344, 330);
             this.Controls.Add(this.thisdate);
-            this.Controls.Add(this.Next_day);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_registry);
             this.Name = "Menu";
@@ -93,8 +82,7 @@
 
         private System.Windows.Forms.Button button_registry;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button Next_day;
-        private System.Windows.Forms.TextBox thisdate;
+        private System.Windows.Forms.Label thisdate;
     }
 }
 
