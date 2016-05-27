@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Menu : Form
+    partial class Menu : Form
     {
         public Menu()
         {
@@ -36,7 +36,8 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Operation newform = new Operation(thisdate.Text);
+            newform.ShowDialog();
         }
     }
 }

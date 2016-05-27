@@ -49,7 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.value = new System.Windows.Forms.ComboBox();
+            this.valuta = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // f_name
@@ -96,7 +96,7 @@
             // 
             // procent
             // 
-            this.procent.Location = new System.Drawing.Point(133, 232);
+            this.procent.Location = new System.Drawing.Point(133, 237);
             this.procent.Name = "procent";
             this.procent.Size = new System.Drawing.Size(118, 20);
             this.procent.TabIndex = 9;
@@ -123,11 +123,12 @@
             // 
             // name_procent
             // 
+            this.name_procent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.name_procent.FormattingEnabled = true;
             this.name_procent.Items.AddRange(new object[] {
             "Умные",
             "Обычные"});
-            this.name_procent.Location = new System.Drawing.Point(133, 258);
+            this.name_procent.Location = new System.Drawing.Point(133, 263);
             this.name_procent.Name = "name_procent";
             this.name_procent.Size = new System.Drawing.Size(118, 21);
             this.name_procent.TabIndex = 10;
@@ -231,17 +232,18 @@
             this.label10.Text = "Проценты";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // value
+            // valuta
             // 
-            this.value.FormattingEnabled = true;
-            this.value.Items.AddRange(new object[] {
+            this.valuta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.valuta.FormattingEnabled = true;
+            this.valuta.Items.AddRange(new object[] {
             "Гривна",
             "Долар",
             "Евро"});
-            this.value.Location = new System.Drawing.Point(133, 206);
-            this.value.Name = "value";
-            this.value.Size = new System.Drawing.Size(118, 21);
-            this.value.TabIndex = 8;
+            this.valuta.Location = new System.Drawing.Point(133, 206);
+            this.valuta.Name = "valuta";
+            this.valuta.Size = new System.Drawing.Size(118, 21);
+            this.valuta.TabIndex = 8;
             // 
             // Registry
             // 
@@ -260,7 +262,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bank_book);
             this.Controls.Add(this.name_procent);
-            this.Controls.Add(this.value);
+            this.Controls.Add(this.valuta);
             this.Controls.Add(this.back);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.procent);
@@ -300,6 +302,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox value;
+        private System.Windows.Forms.ComboBox valuta;
     }
 }

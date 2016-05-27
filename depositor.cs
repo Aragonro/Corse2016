@@ -9,129 +9,80 @@ namespace WindowsFormsApplication1
 {
     class depositor
     {
-        string bank_book;
         public string Bank_Book
         {
-            get { return bank_book; }
-            set { bank_book = value; }
+            get; set;
         }
-        string phone;
         public string Phone
         {
-            get { return phone; }
-            set { phone = value; }
+            get; set;
         }
-        string firstname;
         public string FirstName
         {
-            get { return firstname; }
-            set { firstname = value; }
+            get; set;
         }
-        string secondname;
         public string SecondName
         {
-            get { return secondname; }
-            set { secondname = value; }
+            get; set;
         }
-        string valuta;
         public string Valuta
         {
-            get { return valuta; }
-            set { valuta = value; }
+            get; set;
         }
-        double procent;
         public double Procent
         {
-            get { return procent; }
-            set { procent = value; }
+            get; set;
         }
-        string procent_name;
         public string Procent_Name
         {
-            get { return procent_name; }
-            set { procent_name = value; }
+            get; set;
         }
-        string pasport;
         public string Pasport
         {
-            get { return pasport; }
-            set { pasport = value; }
+            get; set;
         }
-        string pasport_party;
         public string Pasport_Party
         {
-            get { return pasport_party; }
-            set { pasport_party = value; }
+            get; set;
         }
-        double all_money;
+        public double Procent_Money
+        {
+            get; set;
+        }
         public double All_Money
         {
-            get { return all_money; }
-            set { all_money = value; }
+            get { return Procent_Money + Dep_Money; }
         }
-        double dep_money;
         public double Dep_Money
         {
-            get { return dep_money; }
-            set { dep_money = value; }
+            get; set;
         }
-        string changedate;
         public string ChangeDate
         {
-            get { return changedate; }
-            set { changedate = value; }
+            get; set;
         }
         public void receiving(double money)
         {
-            All_Money += Math.Round(money, 2);
+            Dep_Money += Math.Round(money, 2);
         }
-        public void dispensing(double money)
+        public bool dispensing(double money)
         {
-            if (procent_name == "Умные")
+
+            if (Procent_Money >= money)
             {
-                if (All_Money >= money)
-                {
-                    All_Money -= money;
-                }
-                else
-                {
-                    MessageBox.Show("Не достаточно денег на счету!");
-                }
+                Procent_Money -= money;
+                return true;
             }
-            else
+            if (Procent_Money + Dep_Money >= money)
             {
-                if (dep_money + All_Money < money)
-                {
-                    MessageBox.Show("Не достаточно денег на счету!");
-                    return;
-                }
-                if (dep_money < money)
-                {
-                    All_Money += dep_money - money;
-                    return;
-                }
-                if (dep_money >= money)
-                {
-                    dep_money -= money;
-                    return;
-                }
-
+                Dep_Money += Procent_Money - money;
+                Procent_Money = 0;
+                return true;
             }
+            MessageBox.Show("Не достаточно денег на счету!");
+            return false;
         }
 
-        internal static void Add(depositor dep)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static int Count()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void Remove(depositor i)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace WindowsFormsApplication1
 {
-    class Work_File
+    static class Work_File
     {
         public static void work_date(string date)
         {
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
                     sw.WriteLine(d.Phone);
                     sw.WriteLine(d.Pasport_Party);
                     sw.WriteLine(d.Dep_Money);
-                    sw.WriteLine(d.All_Money);
+                    sw.WriteLine(d.Procent_Money);
                     sw.WriteLine(d.Procent);
                     sw.WriteLine(d.Procent_Name);
                     sw.WriteLine(d.Valuta);
@@ -67,11 +67,11 @@ namespace WindowsFormsApplication1
             {
                 if (d.Procent_Name == "Умные")
                 {
-                    d.All_Money += d.All_Money * d.Procent / (100+ day);
+                    d.Procent_Money += Math.Round((d.Procent_Money+d.Dep_Money) * d.Procent / 100/ day,2);
                 }
                 else
                 {
-                    d.All_Money += d.Dep_Money * d.Procent / (100+ day);
+                    d.Procent_Money += Math.Round(d.Dep_Money * d.Procent / 100/ day,2);
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace WindowsFormsApplication1
                         dep.Phone = sr.ReadLine();
                         dep.Pasport_Party = sr.ReadLine();
                         dep.Dep_Money = double.Parse(sr.ReadLine());
-                        dep.All_Money = dep.Dep_Money;
+                        dep.Procent_Money = double.Parse(sr.ReadLine());
                         dep.Procent = double.Parse(sr.ReadLine());
                         dep.Procent_Name = sr.ReadLine();
                         dep.Valuta = sr.ReadLine();
@@ -156,7 +156,7 @@ namespace WindowsFormsApplication1
                         dep.Procent_Name= sr.ReadLine();
                         dep.Valuta= sr.ReadLine();
                         dep.ChangeDate= sr.ReadLine();
-                        dep.All_Money= dep.Dep_Money;
+                        dep.Procent_Money= 0;
 
                         depositors.Add(dep);
 
@@ -164,11 +164,39 @@ namespace WindowsFormsApplication1
                     if (s == "Delete")
                     {
                         s = sr.ReadLine();
-                        foreach(depositor i in depositors)
+                        foreach(depositor dep in depositors)
                         {
-                            if (i.Bank_Book == s)
+                            if (dep.Bank_Book == s)
                             {
-                                depositors.Remove(i);
+                                depositors.Remove(dep);
+                                break;
+                            }
+                        }
+                    }
+                    if (s == "Money_up")
+                    {
+                        s = sr.ReadLine();
+                        foreach(depositor dep in depositors)
+                        {
+                            if (dep.Bank_Book == s)
+                            {
+                                s = sr.ReadLine();
+                                dep.receiving(double.Parse(s));
+                                dep.ChangeDate = date;
+                                break;
+                            }
+                        }
+                    }
+                    if (s == "Money_down")
+                    {
+                        s = sr.ReadLine();
+                        foreach (depositor dep in depositors)
+                        {
+                            if (dep.Bank_Book == s)
+                            {
+                                s = sr.ReadLine();
+                                dep.dispensing(double.Parse(s));
+                                dep.ChangeDate = date;
                                 break;
                             }
                         }

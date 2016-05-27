@@ -28,22 +28,65 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             depositor dep = new depositor();
-            int bank_book;
-            if(!(int.TryParse(this.bank_book.Text,out bank_book)))
+            string f_name = this.f_name.Text;
+            if (f_name == "")
             {
-                MessageBox.Show("Не правильно введён лицевой счёт!");
+                MessageBox.Show("Введите имя");
+                return;
+            }
+            string s_name = this.s_name.Text;
+            if (s_name == "")
+            {
+                MessageBox.Show("Введите фамилию");
                 return;
             }
             int phone;
             if(!(int.TryParse(this.phone.Text,out phone)) || phone<100000000 || phone>999999999)
             {
-                MessageBox.Show("Не правильно введён номер телефона!");
+                MessageBox.Show("Неправильно введён номер телефона!");
                 return;
             }
-            int number_pasport = int.Parse(this.number_pasport.Text);
-            double money = double.Parse(this.money.Text);
-            double procent = double.Parse(this.procent.Text);
-            Work_File.Add(f_name.Text, s_name.Text, this.bank_book.Text, this.phone.Text, party_passport.Text, this.number_pasport.Text, money, value.Text, procent, name_procent.Text,date);
+            string party_passport=this.party_passport.Text;
+            if (party_passport.Length != 2)
+            {
+                MessageBox.Show("Неправильно введена партия паспорта");
+                return;
+            }
+            int number_pasport;
+            if (this.number_pasport.Text == "" || !(int.TryParse(this.number_pasport.Text, out number_pasport)) || number_pasport<100000 || number_pasport>999999)
+            {
+                MessageBox.Show("Неправильно номер паспорта!");
+                return;
+            }
+            int bank_book;
+            if (this.bank_book.Text == "" || !(int.TryParse(this.bank_book.Text, out bank_book)))
+            {
+                MessageBox.Show("Неправильно введён лицевой счёт!");
+                return;
+            }
+            double money;
+            if (!(double.TryParse(this.money.Text, out money)) || money<0)
+            {
+                MessageBox.Show("Неправильно введена сумма");
+                return;
+            }
+            if (valuta.Text == "")
+            {
+                MessageBox.Show("Выбирите валюту");
+                return;
+            }
+            double procent;
+            if(!(double.TryParse(this.procent.Text,out procent))||procent<=0)
+            {
+                MessageBox.Show("Неправильно введены проценты");
+                return;
+            }
+            if (name_procent.Text == "")
+            {
+                MessageBox.Show("Выбирите вид процентов");
+                return;
+            }
+            Work_File.Add(f_name, s_name, this.bank_book.Text, this.phone.Text, party_passport, this.number_pasport.Text, money, valuta.Text, procent, name_procent.Text,date);
             Close();
         }
 
