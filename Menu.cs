@@ -33,13 +33,28 @@ namespace WindowsFormsApplication1
                     last_date = s;
                 }
             }
-            while (last_date != now_date)
+            /*if (last_date == "")
             {
-                last_date = Work_File.Next_Day(last_date);
-            }
-            using(StreamWriter sw = File.AppendText(path))
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(now_date);
+                }
+                path= @"D:\Data\"+now_date+".txt";
+                File.Create(path);
+                path= @"D:\Data\Change_"+now_date+".txt";
+                File.Create(path);
+                return;
+            }*/
+            if (last_date != now_date)
             {
-                sw.WriteLine(now_date);
+                while (last_date != now_date)
+                {
+                    last_date = Work_File.Next_Day(last_date);
+                }
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(now_date);
+                }
             }
         }
 

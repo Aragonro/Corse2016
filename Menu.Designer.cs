@@ -35,7 +35,7 @@
             // 
             // button_registry
             // 
-            this.button_registry.Location = new System.Drawing.Point(59, 86);
+            this.button_registry.Location = new System.Drawing.Point(6, 48);
             this.button_registry.Name = "button_registry";
             this.button_registry.Size = new System.Drawing.Size(272, 37);
             this.button_registry.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(59, 158);
+            this.button2.Location = new System.Drawing.Point(6, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(272, 34);
             this.button2.TabIndex = 1;
@@ -56,7 +56,7 @@
             // thisdate
             // 
             this.thisdate.AutoSize = true;
-            this.thisdate.Location = new System.Drawing.Point(213, 255);
+            this.thisdate.Location = new System.Drawing.Point(203, 212);
             this.thisdate.Name = "thisdate";
             this.thisdate.Size = new System.Drawing.Size(35, 13);
             this.thisdate.TabIndex = 4;
@@ -66,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 330);
+            this.ClientSize = new System.Drawing.Size(285, 250);
             this.Controls.Add(this.thisdate);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_registry);
